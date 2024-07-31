@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car page</title>
+</head>
+<body>
+
+<h1 style="text-align: center; font-size: 40px; color: #17a9b2">THE CAR PAGE</h1><hr>
+
+<h2 th:text="'★ ' + ${car.getName()} + ' ★'"
+    style="text-align: center; font-size: 30px; color: #14979f">name</h2>
+
+<h3 style="text-align: center; font-size: 25px; color: #107f85">
+    ☆ model:
+    <span th:text="${car.getModel()} + ' ☆'">model</span>
+</h3>
+
+<h4 style="text-align: center; font-size: 20px; color: #0e6c72">
+    (id:
+    <span th:text="${car.getId()}">id</span>,
+    wheels:
+    <span th:text="${car.getWheelNum()}">wheels</span>)
+</h4><hr>
+
+<form th:method="DELETE" th:action="@{/cars/{id}(id = ${car.getId()})}"
+      style="text-decoration: none; display: flex; justify-content: center">
+
+    <a th:href="@{/cars/{id}/edit (id = ${car.getId()})}" style="text-decoration: none;">
+
+        <button type="button" style="text-align: center;
+        width: 100px; height: 50px; background-color: #f3f07d">
+            <b>
+                EDIT CAR
+            </b>
+        </button>
+    </a>
+        <span>⠀</span>
+    <input type="submit" value="DELETE CAR"
+           style="text-align: center; width: 100px; height: 50px;
+           background-color: #f18e8e; font-weight: bold"/>
+</form>
+
+<div style="display: flex; justify-content: center; padding-top: 12px">
+    <a href="/cars" style="text-decoration: none;">
+        <button type="button" style="text-align: center;
+        width: 212px; height: 50px; background-color: #93ef93">
+            <b>
+                BACK TO THE LIST
+            </b>
+        </button>
+    </a>
+</div>
+
+</body>
+</html>

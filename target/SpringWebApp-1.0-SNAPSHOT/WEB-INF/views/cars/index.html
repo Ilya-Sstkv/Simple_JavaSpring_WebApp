@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+</head>
+<body>
+
+<h1 style="text-align: center; font-size: 40px; color: #17a9b2">THE CAR LIST</h1><hr>
+
+<div style = "display: flex; justify-content: center">
+    <a href="/cars/new" style="text-decoration: none;">
+        <button type="button" style="text-align: center; width: 160px; height: 50px; background-color: #93ef93">
+            <b>
+                CREATE NEW CAR
+            </b>
+        </button>
+    </a>
+    <span>⠀</span>
+    <a href="/index.jsp" style="text-decoration: none;">
+        <button type="button" style="text-align: center; width: 80px; height: 50px; background-color: #f18e8e">
+            <b>
+                GO BACK
+            </b>
+        </button>
+    </a>
+</div><hr>
+
+<ol>
+    <th:block th:each="car : ${cars}">
+        <li>
+            <b>
+                <a th:href="@{/cars/{id}(id = ${car.getId()})}"
+               th:text="${car.getName()} + ' (model: ' + ${car.getModel()} + ')'"
+                  style="text-decoration: none;">car</a>
+            </b>
+        </li>
+    </th:block>
+</ol>
+
+</body>
+</html>

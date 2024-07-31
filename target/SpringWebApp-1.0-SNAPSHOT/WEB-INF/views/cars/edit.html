@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car editing</title>
+</head>
+
+<body>
+
+<h1 style="text-align: center; font-size: 40px; color: #17a9b2">CAR EDITING</h1><hr>
+
+<h2 style="text-align: center; font-size: 30px; color: #14979f">
+    (car id:
+    <th:block th:text="${currentId}"/>)
+</h2>
+
+<form th:method="PATCH" th:action="@{/cars/{id}(id=${editCar.getId()})}" th:object="${editCar}">
+
+    <p style="display: flex; justify-content: center">
+        <label for="name"> <b> Enter new car name:⠀</b> </label>
+        <input type="text" th:field="*{name}" id="name" placeholder="new name" style="width: 220px"/>
+    </p>
+
+    <div style="color:red; text-align: center"
+         th:if="${#fields.hasErrors('name')}" th:errors="*{name}">some error</div>
+
+    <p style="display: flex; justify-content: center">
+        <label for="model"> <b> Enter new car model:⠀</b> </label>
+        <input type="text" th:field="*{model}" id="model" placeholder="new model" style="width: 215px"/>
+    </p>
+
+    <p style="display: flex; justify-content: center">
+        <label for="wheelNum"> <b> Enter new amount of wheels:⠀</b> </label>
+        <input type="number" th:field="*{wheelNum}" id="wheelNum"/>
+    </p>
+
+    <div style="color:red; text-align: center"
+         th:if="${#fields.hasErrors('wheelNum')}" th:errors="*{wheelNum}">some error</div>
+
+    <hr>
+
+    <div style = "display: flex; justify-content: center">
+        <input type="submit" value="SAVE CHANGES!"
+               style="text-align: center; width: 160px; height: 50px;
+               background-color: #93ef93; font-weight: bold">
+            <span>⠀</span>
+        <a th:href="@{/cars/{id}(id = ${editCar.getId()})}" style="text-decoration: none;">
+            <button type="button" style="text-align: center;
+             width: 80px; height: 50px; background-color: #f18e8e">
+                <b>
+                    CANCEL
+                </b>
+            </button>
+        </a>
+    </div>
+
+</form>
+
+</body>
+
+</html>

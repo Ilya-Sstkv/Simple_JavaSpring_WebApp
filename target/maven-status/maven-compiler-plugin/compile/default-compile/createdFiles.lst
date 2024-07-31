@@ -1,0 +1,6 @@
+SimpleSpring\controllers\CarsController.class
+SimpleSpring\dao\CarDAO.class
+SimpleSpring\config\DispatcherServletCfg.class
+SimpleSpring\models\Car.class
+SimpleSpring\dao\CarMapper.class
+SimpleSpring\config\SpringConfig.class
