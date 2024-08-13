@@ -1,5 +1,4 @@
 # Simple_JavaSpring_WebApp
-esfsefsef
 
 A simple Web application that allows you to interact with a 'car database'. The database contains 4 columns: car's id, car's name, car's model and the number of wheels of the car.
 
